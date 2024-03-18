@@ -59,7 +59,7 @@ main() {
         display_lesson_titles "$week_directory"
 
         # Prompt user for lesson number or command
-        read -p "Enter the lesson number, 'n' for next, 'p' for previous , 'w' to select a week, or 'q' to quit: " input
+        read -p "Enter the lesson number, 'n' for next, 'p' for previous, 'w' to select a week, or 'q' to quit: " input
         case $input in
             n)
                 ((current_week_index++)) ;;
