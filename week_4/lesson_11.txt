@@ -1,4 +1,4 @@
-Lesson 11: Practice Scripting for Automation
+Practice Scripting for Automation
 ===============================================================================
 
 - Automating Tasks with Shell Scripts
