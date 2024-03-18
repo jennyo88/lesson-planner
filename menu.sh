@@ -40,7 +40,7 @@ display_lesson() {
 search_keywords() {
     local keyword="$1"
     local search_results
-    search_results=$(grep -rin "$keyword" week_*/lesson_*.txt | fold -s -w "$(tput cols)")
+    search_results=$(grep -rin "$keyword" week_*/lesson_*.txt)
     if [ -n "$search_results" ]; then
         clear
         echo "Search Results for: '$keyword'"
