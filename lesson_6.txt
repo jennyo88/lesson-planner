@@ -1,0 +1,29 @@
+Consolidation and Practice
+===============================================================================
+
+- Consolidation of Basic and Intermediate Commands
+-------------------------------------------------
+    - Combined Exercises Overview:
+--------------------------------------
+        - In this session, you will consolidate your knowledge by combining basic and intermediate commands learned so far.
+        - You will be presented with various scenarios requiring the use of multiple commands.
+        - Practice using your skills to solve these scenarios and accomplish specific tasks.
+
+--------------------------------------
+    - Example Scenarios:
+--------------------------------------
+        1. Scenario: File Management
+            - Description: Create a directory structure with multiple nested directories and files. Use commands like 'mkdir', 'touch', 'cp', 'mv', and 'rm' to manage the files and directories.
+        2. Scenario: Text Processing
+            - Description: Manipulate text files by extracting specific lines or patterns using commands like 'cat', 'grep', 'sed', and 'wc'. Perform text sorting and counting operations.
+        3. Scenario: System Administration
+            - Description: Perform system administration tasks such as user management, file permissions, and process monitoring. Utilize commands like 'useradd', 'chmod', 'ps', and 'kill'.
+        4. Scenario: Automation
+            - Description: Write a shell script to automate a series of tasks, such as file backup, log rotation, or system maintenance. Utilize scripting concepts learned during the week.
+
+--------------------------------------
+    - Practice and Feedback:
+--------------------------------------
+        - Spend time working through each scenario, applying the commands and concepts learned throughout the week.
+        - Experiment with variations of commands and explore different options and parameters.
+        - Seek feedback from peers or mentors to improve your understanding and efficiency in using command-line tools.

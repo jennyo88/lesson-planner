@@ -1,0 +1,14 @@
+===============================================================================
+Mastering Command Line
+===============================================================================
+
+Week 1: Basic Commands and Navigation
+Week 2: Intermediate Commands and Text Manipulation
+Week 3: Package Management and System Administration
+Week 4: Scripting and Automation
+Week 5: Networking and Security
+Week 6: Troubleshooting and Maintenance
+Week 7: Advanced Topics and Projects
+Week 8: Ongoing Learning and Practice
+
+===============================================================================
