@@ -1,0 +1,61 @@
+Lesson 10: Introduction to Shell Scripting
+===============================================================================
+
+- Basics of Shell Scripting with Bash
+--------------------------------------
+    - Overview:
+        - Shell scripting is a powerful way to automate tasks and perform repetitive tasks in a Unix-like environment.
+        - Bash (Bourne Again SHell) is the default shell on most Linux distributions and is widely used for scripting.
+
+    - Key Concepts:
+        - Variables: Variables store data that can be used later in the script. They can store strings, numbers, or any other data type.
+        - Loops: Loops allow you to repeat a block of code multiple times. Common types of loops include for loops and while loops.
+        - Conditionals: Conditionals allow you to make decisions in your script based on certain conditions. Common conditional statements include if statements and case statements.
+        - Functions: Functions are reusable blocks of code that can be called multiple times within a script. They help in organizing and modularizing your code.
+
+    - Practice Tasks:
+        1. Variables:
+            - Declare and initialize variables of different data types (string, integer, etc.).
+            - Print the values of variables using the 'echo' command.
+        2. Loops:
+            - Write a for loop to iterate over a range of numbers or elements in an array.
+            - Write a while loop to repeat a block of code until a condition is met.
+        3. Conditionals:
+            - Use if statements to check conditions and execute different code blocks based on the result.
+            - Use case statements to perform different actions based on the value of a variable.
+        4. Functions:
+            - Define a function that takes parameters and returns a value.
+            - Call the function with different arguments and capture the return value.
+
+    - Example Script:
+        ```bash
+        #!/bin/bash
+
+        # Variables
+        name="John"
+        age=30
+
+        # Loops
+        for i in {1..5}; do
+            echo "Iteration $i"
+        done
+
+        # Conditionals
+        if [ $age -ge 18 ]; then
+            echo "$name is an adult."
+        else
+            echo "$name is a minor."
+        fi
+
+        # Functions
+        greet() {
+            local person_name=$1
+            echo "Hello, $person_name!"
+        }
+
+        greet "Alice"
+        ```
+
+    - Additional Resources:
+        - Bash Guide for Beginners: https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html
+        - Bash Scripting Tutorial: https://www.shellscript.sh/
