@@ -47,7 +47,7 @@ search_keywords() {
         echo "$search_results"
         read -p "Enter the number of the file to read, or press Enter to return to the main menu: " file_number
         if [ -n "$file_number" ]; then
-            selected_file=$(echo "$search_results" | sed -n "${file_number}p" | cut -d ':' -f 2-)
+            selected_file=$(echo "$search_results" | sed -n "${file_number}p" | cut -d ':' -f 2- | cut -d ' ' -f 2-)
             display_lesson "$selected_file"
             read -p "Press Enter to return to the search results..."
         fi
