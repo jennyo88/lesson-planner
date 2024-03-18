@@ -48,6 +48,13 @@ display_menu() {
     echo "==============================================================================="
 }
 
+# Function to display the lessons menu heading
+display_lessons_menu_heading() {
+    echo "==============================================================================="
+    echo "                              Lessons Menu                                     "
+    echo "==============================================================================="
+}
+
 # Function to handle user input for the menu
 handle_menu_input() {
     while true; do
@@ -85,6 +92,9 @@ main() {
         week_directory=${week_directories[$current_week_index]}
 
         clear
+        # Display lessons menu heading
+        display_lessons_menu_heading
+
         # Display lesson titles for the current week
         display_lesson_titles "$week_directory"
 
