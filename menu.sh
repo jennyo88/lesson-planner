@@ -39,13 +39,13 @@ display_lesson() {
 # Function to display the menu
 display_menu() {
     clear
-    echo "***********************************************************"
-    echo "                 Interactive Lesson Planner                "
-    echo "***********************************************************"
+    echo "==============================================================================="
+    echo "                             Interactive Lesson Planner                         "
+    echo "==============================================================================="
     echo "1. Display Lesson Plan Summary"
     echo "2. Start Lesson Planner"
     echo "3. Exit"
-    echo "***********************************************************"
+    echo "==============================================================================="
 }
 
 # Function to handle user input for the menu
