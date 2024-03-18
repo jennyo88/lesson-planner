@@ -67,7 +67,7 @@ handle_main_menu_input() {
                 read -p "Press Enter to return to menu..."
                 ;;
             2)
-                main
+                handle_lesson_planner_menu_input  # Call function to handle lesson planner menu
                 ;;
             3)
                 echo "Exiting..."
