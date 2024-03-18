@@ -47,25 +47,27 @@ display_menu() {
 
 # Function to handle user input for the menu
 handle_menu_input() {
-    read -p "Enter your choice: " choice
-    case $choice in
-        1)
-            display_lesson_plan_summary
-            read -p "Press Enter to return to menu..."
-            ;;
-        2)
-            main  # Call the main function to start the lesson planner
-            exit  # Exit the script after returning from the lesson planner
-            ;;
-        3)
-            echo "Exiting..."
-            exit 0
-            ;;
-        *)
-            echo "Invalid choice. Please enter a number from 1 to 3."
-            read -p "Press Enter to return to menu..."
-            ;;
-    esac
+    while true; do
+        display_menu
+        read -p "Enter your choice: " choice
+        case $choice in
+            1)
+                display_lesson_plan_summary
+                read -p "Press Enter to return to menu..."
+                ;;
+            2)
+                main  # Call the main function to start the lesson planner
+                ;;
+            3)
+                echo "Exiting..."
+                exit 0
+                ;;
+            *)
+                echo "Invalid choice. Please enter a number from 1 to 3."
+                read -p "Press Enter to return to menu..."
+                ;;
+        esac
+    done
 }
 
 # Main function
@@ -127,5 +129,5 @@ main() {
     done
 }
 
-# Call the main function to start the interactive menu
-main
+# Call the function to handle menu input
+handle_menu_input
