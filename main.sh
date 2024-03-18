@@ -30,7 +30,7 @@ display_lesson() {
     if [ -f "$lesson_file" ]; then
         clear
         echo "Lesson Content:"
-        cat "$lesson_file"
+        fold -s -w 80 "$lesson_file"  # Wrap lines at 80 characters
     else
         echo "Lesson not found."
     fi
