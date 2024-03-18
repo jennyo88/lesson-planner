@@ -40,16 +40,14 @@ display_lesson() {
 search_keywords() {
     local keyword="$1"
     local search_results
-    search_results=$(grep -rin "$keyword" week_*/lesson_*.txt)
+    search_results=$(grep -rin "$keyword" week_*/lesson_*.txt | nl -w4 -s': ' | fold -s -w "$(tput cols)")
     if [ -n "$search_results" ]; then
         clear
         echo "Search Results for: '$keyword'"
-        # Number the search results
-        echo "$search_results" | nl -w4 -s': '
+        echo "$search_results"
         read -p "Enter the number of the file to read, or press Enter to return to the main menu: " file_number
         if [ -n "$file_number" ]; then
-            selected_line=$(echo "$search_results" | sed -n "${file_number}p")
-            selected_file=$(echo "$selected_line" | cut -d ':' -f 1)
+            selected_file=$(echo "$search_results" | sed -n "${file_number}p" | cut -d ':' -f 2-)
             display_lesson "$selected_file"
             read -p "Press Enter to return to the search results..."
         fi
