@@ -36,6 +36,27 @@ display_lesson() {
     fi
 }
 
+# Function to search for keywords in all lesson files
+search_keywords() {
+    local keyword="$1"
+    local search_results
+    search_results=$(grep -rin "$keyword" week_*/lesson_*.txt)
+    if [ -n "$search_results" ]; then
+        clear
+        echo "Search Results for: '$keyword'"
+        echo "$search_results"
+        read -p "Enter the number of the file to read, or press Enter to return to the main menu: " file_number
+        if [ -n "$file_number" ]; then
+            selected_file=$(echo "$search_results" | sed -n "${file_number}p" | cut -d ':' -f 1-2)
+            display_lesson "$selected_file"
+            read -p "Press Enter to return to the search results..."
+        fi
+    else
+        echo "No results found for: '$keyword'"
+        read -p "Press Enter to return to the main menu..."
+    fi
+}
+
 # Function to display the menu
 display_menu() {
     clear
@@ -44,7 +65,8 @@ display_menu() {
     echo "==============================================================================="
     echo "1. Display Lesson Plan Summary"
     echo "2. Start Lesson Planner"
-    echo "3. Exit"
+    echo "3. Search for Keywords in Lessons"
+    echo "4. Exit"
     echo "==============================================================================="
 }
 
@@ -59,7 +81,6 @@ display_lessons_menu_heading() {
 handle_menu_input() {
     while true; do
         display_menu
-        echo ""
         read -p "Enter your choice: " choice
         case $choice in
             1)
@@ -70,11 +91,15 @@ handle_menu_input() {
                 main  # Call the main function to start the lesson planner
                 ;;
             3)
+                read -p "Enter the keyword to search for: " keyword
+                search_keywords "$keyword"
+                ;;
+            4)
                 echo "Exiting..."
                 exit 0
                 ;;
             *)
-                echo "Invalid choice. Please enter a number from 1 to 3."
+                echo "Invalid choice. Please enter a number from 1 to 4."
                 read -p "Press Enter to return to menu..."
                 ;;
         esac
@@ -100,8 +125,7 @@ main() {
         display_lesson_titles "$week_directory"
 
         # Prompt user for lesson number or command
-        echo ""
-        read -p "Enter the lesson number, 'n' for next, 'p' for previous, 'w' to select a week,"$'\n'"or press Enter to return to the main menu: " input
+        read -p "Enter the lesson number, 'n' for next, 'p' for previous, 'w' to select a week, or press Enter to return to the main menu: " input
         case $input in
             n)
                 ((current_week_index++)) ;;
