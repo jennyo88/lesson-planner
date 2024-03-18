@@ -1,4 +1,4 @@
-Lesson 10: Introduction to Shell Scripting
+Introduction to Shell Scripting
 ===============================================================================
 
 - Basics of Shell Scripting with Bash
