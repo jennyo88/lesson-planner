@@ -1,0 +1,38 @@
+Review and Practice
+===============================================================================
+
+- Reviewing System Security and Networking
+-------------------------------------------
+    - Overview:
+        - Reviewing system security and networking is essential for reinforcing knowledge and ensuring effective implementation of security measures.
+        - This lesson focuses on reviewing previously learned concepts related to system security and networking and providing opportunities for hands-on practice.
+
+    - Key Areas of Review:
+        - System Security Review:
+            - Revisit fundamental system security concepts, including firewall management, user authentication, and access control.
+            - Review best practices for securing network services, such as SSH, HTTP, and FTP, and mitigating common security threats.
+        - Networking Review:
+            - Recap basic networking concepts, including IP addressing, subnetting, DNS resolution, and network protocols.
+            - Review essential networking commands, such as ifconfig, ping, traceroute, and netstat, and their practical usage.
+        - Practice Sessions:
+            - Hands-on exercises to reinforce system security and networking skills, including configuring firewall rules, implementing user authentication, and troubleshooting network connectivity issues.
+
+    - Practice Tasks:
+        1. Firewall Configuration:
+            - Configure iptables rules to allow/deny specific network traffic based on predefined criteria.
+            - Test firewall rules by simulating various network scenarios and verifying expected behavior.
+        2. User Authentication:
+            - Set up password-based and SSH key-based authentication for user accounts.
+            - Perform user management tasks, including creating, modifying, and deleting user accounts, and assigning appropriate permissions.
+        3. Network Troubleshooting:
+            - Troubleshoot common network connectivity issues using diagnostic tools like ping, traceroute, and netstat.
+            - Analyze network configuration files and logs to identify and resolve networking problems.
+
+    - Example Exercise:
+        - Configure a firewall to allow SSH (port 22) and HTTP (port 80) traffic while blocking all other incoming connections.
+        - Set up SSH key-based authentication for a user account and disable password-based authentication.
+        - Troubleshoot a network connectivity issue between two hosts and restore connectivity using appropriate troubleshooting steps.
+
+    - Additional Resources:
+        - Linux Security Tutorials: https://linuxsecurity.com/
+        - Networking Troubleshooting Guide: https://www.tecmint.com/linux-network-troubleshooting-commands/
