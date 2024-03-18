@@ -99,7 +99,7 @@ main() {
         display_lesson_titles "$week_directory"
 
         # Prompt user for lesson number or command
-        read -p "Enter the lesson number, 'n' for next, 'p' for previous, 'w' to select a week, or 'q' to quit: " input
+        read -p "Enter the lesson number, 'n' for next, 'p' for previous, 'w' to select a week, or press Enter to return to the main menu: " input
         case $input in
             n)
                 ((current_week_index++)) ;;
@@ -122,15 +122,15 @@ main() {
                     echo "Week not found."
                 fi
                 ;;
-            q)
-                break ;;
+            "")
+                break ;;  # Return to main menu
             [0-9]*)
                 lesson_file="$week_directory/lesson_$input.txt"
                 display_lesson "$lesson_file"
                 read -p "Press Enter to continue..."
                 ;;
             *)
-                echo "Invalid input. Please enter a lesson number, 'n', 'p', 'w', or 'q'." ;;
+                echo "Invalid input. Please enter a lesson number, 'n', 'p', 'w', or press Enter to return to the main menu." ;;
         esac
     done
 }
