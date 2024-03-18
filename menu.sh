@@ -59,6 +59,7 @@ display_lessons_menu_heading() {
 handle_menu_input() {
     while true; do
         display_menu
+        echo ""
         read -p "Enter your choice: " choice
         case $choice in
             1)
@@ -99,6 +100,7 @@ main() {
         display_lesson_titles "$week_directory"
 
         # Prompt user for lesson number or command
+        echo ""
         read -p "Enter the lesson number, 'n' for next, 'p' for previous, 'w' to select a week,"$'\n'"or press Enter to return to the main menu: " input
         case $input in
             n)
