@@ -72,10 +72,6 @@ handle_menu_input() {
 
 # Main function
 main() {
-    # Display the lesson plan summary
-    display_lesson_plan_summary
-    read -p "Enter to continue to directory..."
-
     # Array of week directories sorted by name
     week_directories=($(ls -d week_* | sort))
 
@@ -86,9 +82,6 @@ main() {
         week_directory=${week_directories[$current_week_index]}
 
         clear
-        # Display lesson plan summary
-        display_lesson_plan_summary
-
         # Display lesson titles for the current week
         display_lesson_titles "$week_directory"
 
