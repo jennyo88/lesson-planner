@@ -30,7 +30,7 @@ display_lesson() {
     if [ -f "$lesson_file" ]; then
         clear
         echo "Lesson Content:"
-        fold -s -w 80 "$lesson_file"  # Wrap lines at 80 characters
+        fold -s -w $(tput cols) "$lesson_file" | less -FX  # Wrap lines and use less for interactive viewing
     else
         echo "Lesson not found."
     fi
