@@ -36,19 +36,30 @@ display_lesson() {
     fi
 }
 
-# Function to display the menu
-display_menu() {
+# Function to display the main menu
+display_main_menu() {
     clear
-    echo "Interactive Lesson Planner Menu"
-    echo "1. Display Lesson Plan Summary"
+    echo "Interactive Lesson Planner"
+    echo "1. View Lesson Plan Summary"
     echo "2. Start Lesson Planner"
     echo "3. Exit"
 }
 
-# Function to handle user input for the menu
-handle_menu_input() {
+# Function to display the lesson planner menu
+display_lesson_planner_menu() {
+    clear
+    echo "Lesson Planner"
+    echo "1. Next Week"
+    echo "2. Previous Week"
+    echo "3. Jump to Specific Week"
+    echo "4. View Lesson Plan Summary"
+    echo "5. Exit to Main Menu"
+}
+
+# Function to handle user input for the main menu
+handle_main_menu_input() {
     while true; do
-        display_menu
+        display_main_menu
         read -p "Enter your choice: " choice
         case $choice in
             1)
@@ -56,7 +67,7 @@ handle_menu_input() {
                 read -p "Press Enter to return to menu..."
                 ;;
             2)
-                main  # Call the main function to start the lesson planner
+                main
                 ;;
             3)
                 echo "Exiting..."
@@ -64,6 +75,47 @@ handle_menu_input() {
                 ;;
             *)
                 echo "Invalid choice. Please enter a number from 1 to 3."
+                read -p "Press Enter to return to menu..."
+                ;;
+        esac
+    done
+}
+
+# Function to handle user input for the lesson planner menu
+handle_lesson_planner_menu_input() {
+    while true; do
+        display_lesson_planner_menu
+        read -p "Enter your choice: " choice
+        case $choice in
+            1)
+                ((current_week_index++)) ;;
+            2)
+                ((current_week_index--)) ;;
+            3)
+                read -p "Enter the week number to jump to: " week_number
+                # Find the index of the specified week directory
+                new_week_index=-1
+                for i in "${!week_directories[@]}"; do
+                    dir="${week_directories[$i]}"
+                    if [[ $dir == "week_$week_number" ]]; then
+                        new_week_index=$i
+                        break
+                    fi
+                done
+                if [ $new_week_index -ge 0 ]; then
+                    current_week_index=$new_week_index
+                else
+                    echo "Week not found."
+                fi
+                ;;
+            4)
+                display_lesson_plan_summary
+                read -p "Press Enter to return to menu..."
+                ;;
+            5)
+                break ;;
+            *)
+                echo "Invalid choice. Please enter a number from 1 to 5."
                 read -p "Press Enter to return to menu..."
                 ;;
         esac
@@ -81,7 +133,6 @@ main() {
     while [ $current_week_index -ge 0 ] && [ $current_week_index -lt ${#week_directories[@]} ]; do
         week_directory=${week_directories[$current_week_index]}
 
-        clear
         # Display lesson titles for the current week
         display_lesson_titles "$week_directory"
 
@@ -123,4 +174,4 @@ main() {
 }
 
 # Call the function to handle menu input
-handle_menu_input
+handle_main_menu_input
