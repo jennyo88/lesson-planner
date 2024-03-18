@@ -42,18 +42,24 @@ search_keywords() {
     local search_results
     search_results=$(grep -rin "$keyword" week_*/lesson_*.txt)
     if [ -n "$search_results" ]; then
-        clear
-        echo "Search Results for: '$keyword'"
-        # Number the search results
-        echo "$search_results" | nl -w4 -s': '
-        echo ""
-        read -p "Enter the number of the file to read, or press Enter to return to the main menu: " file_number
-        if [ -n "$file_number" ]; then
-            selected_line=$(echo "$search_results" | sed -n "${file_number}p")
-            selected_file=$(echo "$selected_line" | cut -d ':' -f 1)
-            display_lesson "$selected_file"
-            read -p "Press Enter to return to the search results..."
-        fi
+        while true; do
+            clear
+            echo "Search Results for: '$keyword'"
+            # Number the search results
+            echo "$search_results" | nl -w4 -s': '
+            read -p "Enter the number of the file to read, or press Enter to return to the main menu: " file_number
+            if [ -z "$file_number" ]; then
+                break  # Exit the loop if no file number is provided
+            elif [ "$file_number" -ge 1 ] && [ "$file_number" -le "$(echo "$search_results" | wc -l)" ]; then
+                selected_line=$(echo "$search_results" | sed -n "${file_number}p")
+                selected_file=$(echo "$selected_line" | cut -d ':' -f 1)
+                display_lesson "$selected_file"
+                read -p "Press Enter to return to the search results..."
+            else
+                echo "Invalid file number. Please enter a valid number or press Enter to return to the main menu."
+                read -p "Press Enter to continue..."
+            fi
+        done
     else
         echo "No results found for: '$keyword'"
         read -p "Press Enter to return to the main menu..."
