@@ -99,7 +99,7 @@ main() {
         display_lesson_titles "$week_directory"
 
         # Prompt user for lesson number or command
-        read -p "Enter the lesson number, 'n' for next, 'p' for previous, 'w' to select a week, or press Enter to return to the main menu: " input
+        read -p "Enter the lesson number, 'n' for next, 'p' for previous, 'w' to select a week,"$'\n'"or press Enter to return to the main menu: " input
         case $input in
             n)
                 ((current_week_index++)) ;;
