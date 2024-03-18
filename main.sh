@@ -54,7 +54,8 @@ handle_menu_input() {
             read -p "Press Enter to return to menu..."
             ;;
         2)
-            main
+            main  # Call the main function to start the lesson planner
+            exit  # Exit the script after returning from the lesson planner
             ;;
         3)
             echo "Exiting..."
@@ -69,9 +70,60 @@ handle_menu_input() {
 
 # Main function
 main() {
-    while true; do
-        display_menu
-        handle_menu_input
+    # Display the lesson plan summary
+    display_lesson_plan_summary
+    read -p "Enter to continue to directory..."
+
+    # Array of week directories sorted by name
+    week_directories=($(ls -d week_* | sort))
+
+    # Start index for week directories
+    current_week_index=0
+
+    while [ $current_week_index -ge 0 ] && [ $current_week_index -lt ${#week_directories[@]} ]; do
+        week_directory=${week_directories[$current_week_index]}
+
+        clear
+        # Display lesson plan summary
+        display_lesson_plan_summary
+
+        # Display lesson titles for the current week
+        display_lesson_titles "$week_directory"
+
+        # Prompt user for lesson number or command
+        read -p "Enter the lesson number, 'n' for next, 'p' for previous, 'w' to select a week, or 'q' to quit: " input
+        case $input in
+            n)
+                ((current_week_index++)) ;;
+            p)
+                ((current_week_index--)) ;;
+            w)
+                read -p "Enter the week number to jump to: " week_number
+                # Find the index of the specified week directory
+                new_week_index=-1
+                for i in "${!week_directories[@]}"; do
+                    dir="${week_directories[$i]}"
+                    if [[ $dir == "week_$week_number" ]]; then
+                        new_week_index=$i
+                        break
+                    fi
+                done
+                if [ $new_week_index -ge 0 ]; then
+                    current_week_index=$new_week_index
+                else
+                    echo "Week not found."
+                fi
+                ;;
+            q)
+                break ;;
+            [0-9]*)
+                lesson_file="$week_directory/lesson_$input.txt"
+                display_lesson "$lesson_file"
+                read -p "Press Enter to continue..."
+                ;;
+            *)
+                echo "Invalid input. Please enter a lesson number, 'n', 'p', 'w', or 'q'." ;;
+        esac
     done
 }
 
