@@ -1,0 +1,42 @@
+Lesson 11: Practice Scripting for Automation
+===============================================================================
+
+- Automating Tasks with Shell Scripts
+--------------------------------------
+    - Overview:
+        - Shell scripts provide a convenient way to automate repetitive tasks, increasing efficiency and reducing manual effort.
+        - This lesson focuses on practicing writing shell scripts to automate various tasks such as file manipulation, backups, or system monitoring.
+
+    - Key Concepts:
+        - Script Structure: Understanding the basic structure of a shell script, including shebang (#!/bin/bash), comments, and executable permissions.
+        - File Manipulation: Using commands like cp, mv, rm, and mkdir to manipulate files and directories.
+        - Backup Automation: Writing scripts to automate backup tasks, including creating backups, rotating backups, and handling error conditions.
+        - System Monitoring: Implementing scripts to monitor system resources such as CPU usage, disk space, and network connectivity.
+
+    - Practice Tasks:
+        1. File Manipulation:
+            - Write a script to move files from one directory to another based on certain conditions (e.g., file extension, file size).
+            - Create a script to recursively delete files older than a specified number of days from a directory.
+        2. Backup Automation:
+            - Develop a backup script that creates a compressed archive of specified files and directories and stores it in a backup directory.
+            - Implement a backup rotation mechanism to manage multiple backup versions and prevent disk space issues.
+        3. System Monitoring:
+            - Write a script to monitor CPU usage and send an email notification if it exceeds a predefined threshold.
+            - Create a script to check disk space usage and alert if any filesystem exceeds a specified threshold.
+
+    - Example Script:
+        ```bash
+        #!/bin/bash
+
+        # Backup Script
+        backup_dir="/backup"
+        source_dir="/data"
+        date_stamp=$(date +%Y-%m-%d)
+        backup_file="backup_$date_stamp.tar.gz"
+
+        tar -czf "$backup_dir/$backup_file" "$source_dir"
+        ```
+
+    - Additional Resources:
+        - Linux Shell Scripting Tutorial: https://bash.cyberciti.biz/guide/Main_Page
+        - Shell Scripting Recipes: https://www.shellscript.sh/recipes.html
