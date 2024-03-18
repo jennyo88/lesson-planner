@@ -45,7 +45,7 @@ search_keywords() {
         clear
         echo "Search Results for: '$keyword'"
         # Number the search results
-        echo "$search_results" | nl -w1 -s': '
+        echo "$search_results" | nl -w4 -s': '
         read -p "Enter the number of the file to read, or press Enter to return to the main menu: " file_number
         if [ -n "$file_number" ]; then
             selected_line=$(echo "$search_results" | sed -n "${file_number}p")
