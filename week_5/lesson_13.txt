@@ -1,0 +1,47 @@
+Learning Basic Networking Commands
+===============================================================================
+
+- Basic Networking Commands
+--------------------------------
+    - Overview:
+        - Basic networking commands are essential for diagnosing and managing network connections in a Linux environment.
+        - This lesson covers fundamental networking commands such as ifconfig, ping, and traceroute, along with understanding network configuration files like /etc/network/interfaces.
+
+    - Key Commands:
+        - ifconfig: Displays network interface configuration details, including IP addresses, netmasks, and hardware addresses.
+        - ping: Sends ICMP echo requests to a specified network host to check connectivity and measure round-trip time.
+        - traceroute: Traces the route that packets take to reach a destination host, showing intermediate hops and response times.
+        - /etc/network/interfaces: Configuration file used to define network interfaces and their settings, including IP addresses, gateways, and DNS servers.
+
+    - Practice Tasks:
+        1. Using ifconfig:
+            - Use ifconfig to display network interface details such as IP addresses, netmasks, and MAC addresses.
+            - Configure and assign IP addresses to network interfaces using ifconfig.
+        2. Testing Connectivity with ping:
+            - Use ping to test connectivity to remote hosts by sending ICMP echo requests and receiving replies.
+            - Experiment with different options of ping, such as setting the packet size or specifying the number of packets to send.
+        3. Tracing Network Routes with traceroute:
+            - Trace the route that packets take to reach a specific destination host using traceroute.
+            - Analyze the output to identify network hops, response times, and potential connectivity issues.
+        4. Network Configuration with /etc/network/interfaces:
+            - Explore the /etc/network/interfaces file and understand its structure and syntax.
+            - Modify network interface configurations, such as assigning static IP addresses or configuring DHCP.
+
+    - Example Usage:
+        ```bash
+        # Display network interface details
+        ifconfig
+
+        # Ping a remote host
+        ping google.com
+
+        # Trace the route to a remote host
+        traceroute google.com
+
+        # Edit network interface configuration
+        sudo nano /etc/network/interfaces
+        ```
+
+    - Additional Resources:
+        - Linux Networking Commands Cheat Sheet: https://www.tecmint.com/linux-networking-commands/
+        - Ubuntu Documentation: Network Configuration: https://help.ubuntu.com/lts/serverguide/network-configuration.html
